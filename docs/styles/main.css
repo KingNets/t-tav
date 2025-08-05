@@ -2,15 +2,27 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%;
     font-family: 'Orbitron', Arial, sans-serif;
-    background: transparent;
+    background: #1a2980; /* This ensures the background extends for the full page */
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Optimize for performance */
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+}
+
+/* Ensure body extends to full content height */
+body {
+    min-height: 100vh;
 }
 
 .futuristic-bg {
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
     z-index: -1;
     background: #1a2980;
     /* background: linear-gradient(120deg, #0f2027, #2c5364, #1a2980, #26d0ce); */
@@ -30,11 +42,13 @@ body, html {
     max-width: 900px;
     padding: 32px;
     border-radius: 24px;
-    background: rgba(20, 30, 60, 0.85);
+    background: rgba(20, 30, 60, 0.95);
     box-shadow: 0 0 40px 10px #26d0ce55, 0 0 0 4px #1a2980;
     position: relative;
     border: 2px solid #26d0ce;
-    backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px); - Removed for better performance */
+    will-change: transform;
+    transform: translateZ(0); /* Hardware acceleration */
 }
 
 .futuristic-header {
@@ -68,33 +82,15 @@ body, html {
 }
 
 .futuristic-header .neon-text {
-    animation: neonGradientMove 3s linear infinite alternate, headerPulse 2.5s infinite alternate;
+    animation: neonGradientMove 3s linear infinite alternate;
     text-shadow:
-        0 0 32px #26d0ce,
-        0 0 64px #1a2980,
-        0 0 96px #fff,
-        0 0 128px #26d0ce;
-    filter: drop-shadow(0 0 40px #26d0ce);
+        0 0 16px #26d0ce,
+        0 0 32px #1a2980;
+    filter: drop-shadow(0 0 20px #26d0ce);
+    will-change: text-shadow, filter;
 }
 
-@keyframes headerPulse {
-    0% {
-        text-shadow:
-            0 0 32px #26d0ce,
-            0 0 64px #1a2980,
-            0 0 96px #fff,
-            0 0 128px #26d0ce;
-        filter: drop-shadow(0 0 40px #26d0ce);
-    }
-    100% {
-        text-shadow:
-            0 0 64px #26d0ce,
-            0 0 128px #1a2980,
-            0 0 192px #fff,
-            0 0 256px #26d0ce;
-        filter: drop-shadow(0 0 80px #26d0ce);
-    }
-}
+/* Remove the complex headerPulse animation that was causing performance issues */
 @keyframes neonGradientMove {
     0% { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
@@ -139,6 +135,7 @@ body, html {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
     justify-items: center;
+    contain: layout style; /* CSS containment for better performance */
 }
 
 .futuristic-card {
@@ -151,11 +148,13 @@ body, html {
     box-shadow: 0 0 24px 4px #26d0ce88;
     border: 2px solid #26d0ce;
     padding: 24px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-out;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    will-change: transform;
+    transform: translateZ(0); /* Hardware acceleration */
 }
 
 .video-tags {
@@ -168,8 +167,8 @@ body, html {
 }
 
 .futuristic-card:hover {
-    transform: scale(1.04) rotate(-1deg);
-    box-shadow: 0 0 48px 8px #26d0cecc;
+    transform: translate3d(0, -4px, 0) scale(1.02);
+    box-shadow: 0 0 32px 6px #26d0ceaa;
 }
 
 .video-frame {
@@ -306,7 +305,7 @@ body, html {
     to { opacity: 1; transform: translateY(0);}
 }
 
-/* Add to your main.css for dramatic text reveal */
+/* Add to your main.css for dramatic text reveal - Optimized for performance */
 .reveal-text {
     position: fixed;
     top: 50%;
@@ -315,10 +314,8 @@ body, html {
     font-size: min(6vw, 80px); /* Smaller size */
     color: #26d0ce;
     text-shadow:
-        0 0 120px #26d0ce,
-        0 0 240px #1a2980,
-        0 0 80px #fff,
-        0 0 160px #26d0ce;
+        0 0 40px #26d0ce,
+        0 0 80px #1a2980;
     font-family: 'Orbitron', Arial, sans-serif;
     font-weight: 900;
     letter-spacing: min(1vw, 8px);
@@ -327,11 +324,12 @@ body, html {
     z-index: 100000;
     margin: 0;
     white-space: nowrap;
-    filter: drop-shadow(0 0 120px #26d0ce) blur(1px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 40px #26d0ce);
+    transition: all 0.6s ease-out;
     text-transform: uppercase;
     width: 100%;
     text-align: center;
+    will-change: opacity, transform;
 }
 
 .cinematic-reveal {
@@ -395,6 +393,24 @@ body, html {
 @media (max-width: 900px) {
     .card-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Performance optimization: Pause animations during scroll */
+.scrolling * {
+    animation-play-state: paused !important;
+}
+
+.scrolling .futuristic-card:hover {
+    transform: none !important;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
@@ -474,7 +490,7 @@ body, html {
 .intro-video-card {
     background: linear-gradient(120deg, #1a1a2e 60%, #26d0ce 100%, #1a2980 80%);
     border: 4px solid #26d0ce;
-    box-shadow: 0 0 60px 10px #26d0cecc, 0 0 0 8px #1a2980, 0 0 80px 10px #26d0ce55 inset;
+    box-shadow: 0 0 40px 6px #26d0ceaa, 0 0 0 6px #1a2980;
     padding: 2.5rem 2rem 2rem 2rem;
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
@@ -483,25 +499,19 @@ body, html {
     width: 100%;
     justify-self: center;
     position: relative;
-    animation: introCardGlow 3s infinite alternate;
+    /* Simplified animation for better performance */
+    animation: none;
     z-index: 2;
     overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0);
 }
-@keyframes introCardGlow {
-    0% {
-        box-shadow: 0 0 60px 10px #26d0cecc, 0 0 0 8px #1a2980, 0 0 80px 10px #26d0ce55 inset;
-        border-color: #26d0ce;
-    }
-    100% {
-        box-shadow: 0 0 100px 20px #26d0ce, 0 0 0 12px #1a2980, 0 0 120px 20px #26d0ce99 inset;
-        border-color: #fff;
-    }
-}
+/* Simplified hover effect for better performance */
 .intro-video-card:hover {
-    transform: scale(1.025);
-    box-shadow: 0 0 120px 30px #26d0ce, 0 0 0 16px #1a2980, 0 0 160px 30px #26d0ce99 inset;
+    transform: translate3d(0, -2px, 0) scale(1.01);
+    box-shadow: 0 0 50px 8px #26d0ce, 0 0 0 8px #1a2980;
     border-color: #fff;
-    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    transition: all 0.3s ease-out;
 }
 .intro-video-grid-span {
     grid-column: 1 / span 2;

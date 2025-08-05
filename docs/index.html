@@ -52,7 +52,13 @@
             <!-- YouTube: Martin Himma x FC Flora x Optibet -->
             <div class="futuristic-card">
             <h2 class="neon-text">YouTube: Martin Himma x FC Flora x Optibet</h2>
-            <div class="embed-placeholder">[YouTube embed removed]</div>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/GMqnadlVxIo?start=373" 
+                title="Martin Himma x FC Flora x Optibet" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen
+                class="video-frame">
+            </iframe>
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -60,7 +66,13 @@
             <!-- YouTube: Reydan Viidas - Videography Portfolio -->
             <div class="futuristic-card">
             <h2 class="neon-text">YouTube: Drivers Club</h2>
-            <div class="embed-placeholder">[YouTube embed removed]</div>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/VuaBv8P1rOQ?start=6"
+                title="Drivers Club" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen
+                class="video-frame">
+            </iframe>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -69,7 +81,13 @@
             <!-- YouTube: Riina Rannamägi -->
             <div class="futuristic-card">
             <h2 class="neon-text">Kinnisvara virtuaaltuur</h2>
-            <div class="embed-placeholder">[YouTube embed removed]</div>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/_bK65VSwTdU"
+                title="Kinnisvara virtuaaltuur" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen
+                class="video-frame">
+            </iframe>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -78,7 +96,13 @@
             <!-- YouTube: Drivers Club -->
             <div class="futuristic-card">
             <h2 class="neon-text">Drivers Club Hooaja avamine</h2>
-            <div class="embed-placeholder">[YouTube embed removed]</div>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/3LDADU0Xro0?start=2"
+                title="Drivers Club Hooaja avamine" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen
+                class="video-frame">
+            </iframe>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -87,7 +111,12 @@
             <!-- Instagram: Portfolio Reel 1 -->
             <div class="futuristic-card">
             <h2 class="neon-text">Arco Vara kinnisvarabüroo x Landen kinnisvara</h2>
-            <div class="embed-placeholder">[Instagram embed removed]</div>
+            <iframe width="350" height="200" src="https://www.instagram.com/p/DMKASBeNUfm/embed" 
+                title="Arco Vara kinnisvarabüroo x Landen kinnisvara" 
+                frameborder="0" 
+                allowfullscreen
+                class="video-frame">
+            </iframe>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -96,7 +125,12 @@
             <!-- Instagram: Portfolio Reel 2 -->
             <div class="futuristic-card">
             <h2 class="neon-text">Virtuaaltuur ft. Joshua James Viinalass</h2>
-            <div class="embed-placeholder">[Instagram embed removed]</div>
+            <iframe width="350" height="200" src="https://www.instagram.com/p/DE-Wm-KuHaF/embed" 
+                title="Virtuaaltuur ft. Joshua James Viinalass" 
+                frameborder="0" 
+                allowfullscreen
+                class="video-frame">
+            </iframe>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -105,7 +139,7 @@
             <!-- Google Drive: Epic Racing Film (removed) -->
             <div class="futuristic-card">
             <h2 class="neon-text">Ferati</h2>
-            <div class="embed-placeholder">[Google Drive embed removed]</div>
+            <iframe src="https://drive.google.com/file/d/1qbSd3dgpzTJ_1SRkTOXMn_2zW3t7o5-X/preview" width="350" height="200" allow="autoplay" class="video-frame"></iframe>
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -113,7 +147,7 @@
             <!-- Google Drive: New Racing Film (removed) -->
             <div class="futuristic-card">
             <h2 class="neon-text">Martin Himma x Optibet</h2>
-            <div class="embed-placeholder">[Google Drive embed removed]</div>
+            <iframe src="https://drive.google.com/file/d/1cAu7W8-6GyQdGOaoKxW_L95Yna6ybDNp/preview" width="350" height="200" allow="autoplay" class="video-frame"></iframe>
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -177,20 +211,21 @@
             portfolioRevealed = true;
             reydanText.style.opacity = '1';
             reydanText.style.transform = 'translate(-50%, -50%) scale(1)';
-            setTimeout(() => {
+            
+            // Use requestAnimationFrame for smooth animation
+            requestAnimationFrame(() => {
                 introOverlay.style.opacity = '0';
-                introOverlay.style.transition = 'opacity 1.2s ease-in-out';
+                introOverlay.style.transition = 'opacity 0.8s ease-in-out';
+                
                 setTimeout(() => {
                     introOverlay.style.display = 'none';
                     mainContent.classList.remove('hidden');
-                    mainContent.style.opacity = '0';
+                    mainContent.style.transform = 'translateZ(0)'; // Hardware acceleration
+                    mainContent.style.opacity = '1';
                     mainContent.style.display = 'block';
-                    requestAnimationFrame(() => {
-                        mainContent.style.opacity = '1';
-                        mainContent.style.transition = 'opacity 1.2s ease-in-out';
-                    });
-                }, 1200);
-            }, 500);
+                    mainContent.style.transition = 'opacity 0.8s ease-in-out';
+                }, 800);
+            });
         }
 
         function revealReydanText() {
@@ -210,17 +245,30 @@
                 if (unmuteButton) {
                     unmuteButton.remove();
                 }
-                revealPortfolio();
+                
+                // Stop video immediately and clear timeouts
+                clearTimeout(revealTimeout);
                 introVideo.pause();
                 introVideo.currentTime = 0;
-                introOverlay.style.display = 'none';
-                mainContent.classList.remove('hidden');
-                mainContent.style.opacity = '0';
-                mainContent.style.display = 'block';
-                requestAnimationFrame(() => {
-                    mainContent.style.opacity = '1';
-                    mainContent.style.transition = 'opacity 1.2s ease-in-out';
-                });
+                
+                // Use faster, more efficient transition
+                portfolioRevealed = true;
+                introOverlay.style.transition = 'opacity 0.6s ease-out';
+                introOverlay.style.opacity = '0';
+                
+                setTimeout(() => {
+                    introOverlay.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    mainContent.style.display = 'block';
+                    mainContent.style.transform = 'translateZ(0)'; // Hardware acceleration
+                    mainContent.style.opacity = '0';
+                    
+                    // Use requestAnimationFrame for smooth transition
+                    requestAnimationFrame(() => {
+                        mainContent.style.opacity = '1';
+                        mainContent.style.transition = 'opacity 0.6s ease-out';
+                    });
+                }, 600);
             });
         }
 
@@ -231,6 +279,23 @@
                 introVideo.style.display = 'none';
             }
         }, 30000);
+
+        // Performance optimization: Pause expensive animations during scroll
+        let scrollTimeout;
+        let isScrolling = false;
+        
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                isScrolling = true;
+                document.body.classList.add('scrolling');
+            }
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                isScrolling = false;
+                document.body.classList.remove('scrolling');
+            }, 150);
+        }, { passive: true });
     });
 })();
     </script>
