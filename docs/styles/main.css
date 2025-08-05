@@ -56,19 +56,15 @@ body, html {
     font-weight: 900;
     letter-spacing: 4px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #26d0ce, #fff, #1a2980, #26d0ce);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-    animation: neonGradientMove 3s linear infinite alternate;
-    text-shadow:
-        0 0 16px #26d0ce,
-        0 0 32px #1a2980,
-        0 0 48px #fff,
-        0 0 64px #26d0ce;
-    filter: drop-shadow(0 0 24px #26d0ce);
+    /* background: linear-gradient(90deg, #26d0ce, #fff, #1a2980, #26d0ce); */
+    /* background-size: 200% auto; */
+    /* background-clip: text; */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* text-fill-color: transparent; */
+    /* animation: neonGradientMove 3s linear infinite alternate; */
+    text-shadow: 0 0 8px #26d0ce, 0 0 16px #1a2980;
+    /* filter: drop-shadow(0 0 24px #26d0ce); */
 }
 
 .futuristic-header .neon-text {
@@ -341,10 +337,7 @@ body, html {
 .cinematic-reveal {
     opacity: 1 !important;
     transform: translate(-50%, -50%) scale(1) !important;
-    animation: 
-        textReveal 1.5s forwards,
-        glowPulse 2s infinite,
-        glitchEffect 3s infinite;
+    animation: textReveal 1.5s forwards;
 }
 
 @keyframes textReveal {
