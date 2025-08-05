@@ -1,0 +1,541 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Orbitron', Arial, sans-serif;
+    background: transparent;
+    overflow-x: hidden;
+}
+
+.futuristic-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    background: linear-gradient(120deg, #0f2027, #2c5364, #1a2980, #26d0ce);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    filter: blur(2px) brightness(0.7);
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.portfolio-container {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(20, 30, 60, 0.85);
+    box-shadow: 0 0 40px 10px #26d0ce55, 0 0 0 4px #1a2980;
+    position: relative;
+    border: 2px solid #26d0ce;
+    backdrop-filter: blur(4px);
+}
+
+.futuristic-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.futuristic-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.neon-text {
+    color: #26d0ce;
+    font-family: 'Orbitron', 'Montserrat', 'Arial Black', Arial, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #26d0ce, #fff, #1a2980, #26d0ce);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    animation: neonGradientMove 3s linear infinite alternate;
+    text-shadow:
+        0 0 16px #26d0ce,
+        0 0 32px #1a2980,
+        0 0 48px #fff,
+        0 0 64px #26d0ce;
+    filter: drop-shadow(0 0 24px #26d0ce);
+}
+
+.futuristic-header .neon-text {
+    animation: neonGradientMove 3s linear infinite alternate, headerPulse 2.5s infinite alternate;
+    text-shadow:
+        0 0 32px #26d0ce,
+        0 0 64px #1a2980,
+        0 0 96px #fff,
+        0 0 128px #26d0ce;
+    filter: drop-shadow(0 0 40px #26d0ce);
+}
+
+@keyframes headerPulse {
+    0% {
+        text-shadow:
+            0 0 32px #26d0ce,
+            0 0 64px #1a2980,
+            0 0 96px #fff,
+            0 0 128px #26d0ce;
+        filter: drop-shadow(0 0 40px #26d0ce);
+    }
+    100% {
+        text-shadow:
+            0 0 64px #26d0ce,
+            0 0 128px #1a2980,
+            0 0 192px #fff,
+            0 0 256px #26d0ce;
+        filter: drop-shadow(0 0 80px #26d0ce);
+    }
+}
+@keyframes neonGradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Make sample video titles less glowy and fit better */
+.futuristic-card .neon-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    text-fill-color: initial;
+    color: #26d0ce;
+    text-shadow: 0 0 4px #26d0ce, 0 0 8px #1a2980;
+    filter: none;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.subtitle {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.holo {
+    background: linear-gradient(90deg, #26d0ce, #1a2980, #fff, #2c5364);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    justify-items: center;
+}
+
+.futuristic-card {
+    flex: 1 1 340px;
+    max-width: 400px;
+    min-width: 340px;
+    box-sizing: border-box;
+    background: rgba(30, 40, 70, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 0 24px 4px #26d0ce88;
+    border: 2px solid #26d0ce;
+    padding: 24px;
+    transition: transform 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.video-tags {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: auto;
+}
+
+.futuristic-card:hover {
+    transform: scale(1.04) rotate(-1deg);
+    box-shadow: 0 0 48px 8px #26d0cecc;
+}
+
+.video-frame {
+    border-radius: 12px;
+    box-shadow: 0 0 16px 2px #1a2980;
+    border: none;
+    margin-top: 12px;
+}
+
+.video-tags {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.check {
+    color: #26d0ce;
+    background: rgba(20,30,60,0.7);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.95rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    box-shadow: 0 0 8px #26d0ce88;
+}
+
+.futuristic-footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.neon-link {
+    color: #26d0ce;
+    text-shadow: 0 0 8px #26d0ce, 0 0 24px #1a2980;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.2s;
+}
+
+.neon-link:hover {
+    color: #fff;
+    text-shadow: 0 0 16px #26d0ce, 0 0 32px #1a2980;
+}
+
+/* Dramatic fullscreen intro overlay */
+.intro-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+        circle at center,
+        rgba(38, 208, 206, 0.1) 0%,
+        rgba(26, 41, 128, 0.95) 100%
+    );
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-video-wrapper {
+    width: 80%;
+    max-width: 1200px;
+    height: 70vh;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 
+        0 0 40px 10px rgba(38,208,206,0.3),
+        0 0 0 4px #1a2980;
+    border: 2px solid #26d0ce;
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 41, 128, 0.9) 0%,
+        rgba(38, 208, 206, 0.9) 100%
+    );
+}
+
+.intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: rgba(20,30,60,0.3);
+}
+
+.intro-overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.intro-title {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    text-shadow: 0 0 24px #26d0ce, 0 0 48px #1a2980;
+}
+
+.intro-desc {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fade-in {
+    animation: fadeInPortfolio 1.2s forwards;
+}
+
+@keyframes fadeInPortfolio {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Add to your main.css for dramatic text reveal */
+.reveal-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: min(6vw, 80px); /* Smaller size */
+    color: #26d0ce;
+    text-shadow:
+        0 0 120px #26d0ce,
+        0 0 240px #1a2980,
+        0 0 80px #fff,
+        0 0 160px #26d0ce;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: min(1vw, 8px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100000;
+    margin: 0;
+    white-space: nowrap;
+    filter: drop-shadow(0 0 120px #26d0ce) blur(1px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+}
+
+.cinematic-reveal {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    animation: 
+        textReveal 1.5s forwards,
+        glowPulse 2s infinite,
+        glitchEffect 3s infinite;
+}
+
+@keyframes textReveal {
+    0% { 
+        opacity: 0; 
+        transform: translate(-50%, -60%) scale(0.8);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% { 
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 0 120px #26d0ce) blur(1px); }
+    50% { filter: drop-shadow(0 0 180px #26d0ce) blur(0.5px); }
+}
+
+@keyframes glitchEffect {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    2%, 4% { transform: translate(-52%, -50%) scale(1); text-shadow: -2px 0 #ff0000; }
+    3% { transform: translate(-48%, -50%) scale(1); text-shadow: 2px 0 #00ff00; }
+    5% { transform: translate(-50%, -50%) scale(1); text-shadow: none; }
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+    .reveal-text {
+        font-size: min(10vw, 120px);
+        letter-spacing: min(1vw, 10px);
+        width: 95vw;
+    }
+}
+
+@keyframes glitch {
+    0%, 100% { text-shadow: 0 0 120px #26d0ce, 0 0 240px #1a2980, 0 0 80px #fff, 0 0 160px #26d0ce; }
+    10% { text-shadow: 24px 0 #26d0ce, -24px 0 #1a2980; }
+    20% { text-shadow: -24px 0 #26d0ce, 24px 0 #1a2980; }
+    30% { text-shadow: 24px 24px #26d0ce, -24px -24px #1a2980; }
+    40% { text-shadow: -24px 24px #26d0ce, 24px -24px #1a2980; }
+    50% { text-shadow: 0 0 #26d0ce, 0 0 #1a2980; }
+    60% { text-shadow: 0 0 120px #26d0ce, 0 0 240px #1a2980, 0 0 80px #fff, 0 0 160px #26d0ce; }
+}
+
+@keyframes screenFlash {
+    0% { background: rgba(255,255,255,0.98); }
+    30% { background: rgba(38,208,206,0.5); }
+    100% { background: transparent; }
+}
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.unmute-button {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(26, 41, 128, 0.8);
+    color: #26d0ce;
+    padding: 15px 30px;
+    border: 2px solid #26d0ce;
+    border-radius: 8px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 100001;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(38,208,206,0.4);
+}
+
+.unmute-button:hover {
+    background: rgba(38,208,206,0.2);
+    box-shadow: 0 0 30px rgba(38,208,206,0.6);
+}
+
+.skip-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    transform: none;
+    background: rgba(26, 41, 128, 0.8);
+    color: #26d0ce;
+    padding: 12px 24px;
+    border: 2px solid #26d0ce;
+    border-radius: 8px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 100001;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(38,208,206,0.4);
+}
+
+.intro-left-button {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    transform: none;
+    background: rgba(26, 41, 128, 0.8);
+    color: #26d0ce;
+    padding: 12px 24px;
+    border: 2px solid #26d0ce;
+    border-radius: 8px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 100001;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(38,208,206,0.4);
+}
+
+.intro-video-wrapper {
+    position: relative;
+}
+
+.skip-button:hover {
+    background: rgba(38,208,206,0.2);
+    box-shadow: 0 0 30px rgba(38,208,206,0.6);
+    transform: scale(1.05);
+}
+
+/* Intro Video Portfolio Card Custom Style */
+.intro-video-card {
+    background: linear-gradient(120deg, #1a1a2e 60%, #26d0ce 100%, #1a2980 80%);
+    border: 4px solid #26d0ce;
+    box-shadow: 0 0 60px 10px #26d0cecc, 0 0 0 8px #1a2980, 0 0 80px 10px #26d0ce55 inset;
+    padding: 2.5rem 2rem 2rem 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    justify-self: center;
+    position: relative;
+    animation: introCardGlow 3s infinite alternate;
+    z-index: 2;
+    overflow: hidden;
+}
+@keyframes introCardGlow {
+    0% {
+        box-shadow: 0 0 60px 10px #26d0cecc, 0 0 0 8px #1a2980, 0 0 80px 10px #26d0ce55 inset;
+        border-color: #26d0ce;
+    }
+    100% {
+        box-shadow: 0 0 100px 20px #26d0ce, 0 0 0 12px #1a2980, 0 0 120px 20px #26d0ce99 inset;
+        border-color: #fff;
+    }
+}
+.intro-video-card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 120px 30px #26d0ce, 0 0 0 16px #1a2980, 0 0 160px 30px #26d0ce99 inset;
+    border-color: #fff;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+}
+.intro-video-grid-span {
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+@media (max-width: 900px) {
+    .intro-video-grid-span {
+        grid-column: auto;
+    }
+}
+.intro-video-wrapper-portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.intro-portfolio-video {
+    border-radius: 1rem;
+    border: 2px solid #26d0ce;
+    box-shadow: 0 0 20px 2px #26d0ce33;
+    background: #000;
+    width: 100%;
+    max-width: 860px;
+    min-width: 320px;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+.intro-video-description {
+    color: #26d0ce;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
