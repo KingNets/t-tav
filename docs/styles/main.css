@@ -1,3 +1,4 @@
+/* Force update for GitHub Pages cache busting */
 body, html {
     margin: 0;
     padding: 0;
@@ -11,17 +12,18 @@ body, html {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     z-index: -1;
-    background: linear-gradient(120deg, #0f2027, #2c5364, #1a2980, #26d0ce);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    filter: blur(2px) brightness(0.7);
+    background: #1a2980;
+    /* background: linear-gradient(120deg, #0f2027, #2c5364, #1a2980, #26d0ce); */
+    /* background-size: 400% 400%; */
+    /* animation: gradientMove 15s ease infinite; */
+    /* filter: blur(2px) brightness(0.7); */
 }
 
-@keyframes gradientMove {
+/* @keyframes gradientMove {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
-}
+} */
 
 .portfolio-container {
     margin: 40px auto;
@@ -226,12 +228,13 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(
+    background: #1a2980;
+    /* background: radial-gradient(
         circle at center,
         rgba(38, 208, 206, 0.1) 0%,
         rgba(26, 41, 128, 0.95) 100%
-    );
-    backdrop-filter: blur(10px);
+    ); */
+    /* backdrop-filter: blur(10px); */
     z-index: 9999;
     display: flex;
     justify-content: center;
