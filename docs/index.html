@@ -9,31 +9,10 @@
 </head>
 <body>
     <div class="futuristic-bg"></div>
-    <!-- Dramatic Intro Overlay -->
-    <div id="intro-overlay" class="intro-fullscreen">
-        <div class="intro-video-wrapper">
-            <button id="sound-toggle" class="intro-left-button">🔊 Aktiveeri heli</button>
-            <button id="skip-intro" class="skip-button">Portfooliosse</button>
-            <video 
-                id="intro-video" 
-                autoplay 
-                playsinline 
-                preload="metadata"
-                muted
-                class="intro-video"
-            >
-                <source src="intro.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="intro-overlay-content">
-                <div id="reydan-text" class="reveal-text hidden">Reydan Videograafia</div>
-            </div>
-        </div>
-    </div>
-    <div id="main-content" class="portfolio-container futuristic-glow hidden">
+    <div id="main-content" class="portfolio-container futuristic-glow">
         <header class="futuristic-header">
             <h1><span class="neon-text">Reydan Videograafia</span></h1>
-                    </header>
+        </header>
         <div class="card-grid">
             <!-- YouTube: Martin Himma x FC Flora x Optibet -->
             <div class="futuristic-card">
@@ -157,133 +136,5 @@
         </footer>
     </div>
     <script async src="//www.instagram.com/embed.js"></script>
-    <script>
-// Autoplay intro video on mute when scrolled into view
-(function() {
-    document.addEventListener('DOMContentLoaded', function() {
-        var introPortfolioVideo = document.querySelector('.intro-portfolio-video');
-        if (introPortfolioVideo) {
-            introPortfolioVideo.muted = true;
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        introPortfolioVideo.play();
-                    } else {
-                        introPortfolioVideo.pause();
-                    }
-                });
-            }, { threshold: 0.5 });
-            observer.observe(introPortfolioVideo);
-        }
-    });
-})();
-
-document.addEventListener('DOMContentLoaded', function() {
-    const introVideo = document.getElementById('intro-video');
-    const introOverlay = document.getElementById('intro-overlay');
-    const mainContent = document.getElementById('main-content');
-    const reydanText = document.getElementById('reydan-text');
-
-    // Sound toggle button always visible
-    const soundToggleButton = document.getElementById('sound-toggle');
-    if (soundToggleButton && introVideo) {
-        function updateSoundButton() {
-            if (introVideo.muted) {
-                soundToggleButton.textContent = '🔊 Aktiveeri heli';
-            } else {
-                soundToggleButton.textContent = '🔇 Keela heli';
-            }
-        }
-        // Ensure video is muted initially
-        introVideo.muted = true;
-        soundToggleButton.onclick = function() {
-            introVideo.muted = !introVideo.muted;
-            updateSoundButton();
-            introVideo.play();
-        };
-        // Set initial state
-        updateSoundButton();
-    }
-
-    // Force video to play with sound
-    introVideo.play().catch(function(error) {
-        console.log("Video autoplay failed:", error);
-        introVideo.muted = true;
-        introVideo.play();
-    });
-
-    let portfolioRevealed = false;
-    
-    function revealPortfolio() {
-        if (portfolioRevealed) return;
-        portfolioRevealed = true;
-        
-        // Ensure text is visible before transitioning
-        reydanText.style.opacity = '1';
-        reydanText.style.transform = 'translate(-50%, -50%) scale(1)';
-        
-        // Smooth transition
-        setTimeout(() => {
-            introOverlay.style.opacity = '0';
-            introOverlay.style.transition = 'opacity 1.2s ease-in-out';
-            
-            setTimeout(() => {
-                introOverlay.style.display = 'none';
-                mainContent.classList.remove('hidden');
-                mainContent.style.opacity = '0';
-                mainContent.style.display = 'block';
-                
-                requestAnimationFrame(() => {
-                    mainContent.style.opacity = '1';
-                    mainContent.style.transition = 'opacity 1.2s ease-in-out';
-                });
-            }, 1200);
-        }, 500);
-    }
-
-    function revealReydanText() {
-        reydanText.classList.remove('hidden');
-        reydanText.classList.add('cinematic-reveal');
-        // Ensure text stays visible
-        reydanText.style.opacity = '1';
-        reydanText.style.zIndex = '100000';
-    }
-
-    // Timing for reveal
-    setTimeout(revealReydanText, 13000);
-    introVideo.addEventListener('ended', revealPortfolio);
-    setTimeout(revealPortfolio, 14500);
-
-    // Skip intro button functionality
-    document.getElementById('skip-intro').addEventListener('click', function() {
-        // Remove the unmuteButton if it exists
-        var unmuteButton = document.querySelector('.unmute-button');
-        if (unmuteButton) {
-            unmuteButton.remove();
-        }
-        revealPortfolio();
-        introVideo.pause();
-        introVideo.currentTime = 0;
-        introOverlay.style.display = 'none';
-        mainContent.classList.remove('hidden');
-        mainContent.style.opacity = '0';
-        mainContent.style.display = 'block';
-        
-        requestAnimationFrame(() => {
-            mainContent.style.opacity = '1';
-            mainContent.style.transition = 'opacity 1.2s ease-in-out';
-        });
-    });
-
-    // Add skip button functionality
-    const skipButton = document.getElementById('skip-intro');
-    skipButton.addEventListener('click', () => {
-        introVideo.pause();
-        clearTimeout(revealTimeout);
-        revealReydanText();
-        setTimeout(revealPortfolio, 1500);
-    });
-});
-</script>
 </body>
 </html>
