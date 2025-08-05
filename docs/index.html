@@ -81,7 +81,10 @@
             <!-- YouTube: Martin Himma x FC Flora x Optibet -->
             <div class="futuristic-card">
             <h2 class="neon-text">YouTube: Martin Himma x FC Flora x Optibet</h2>
-            <iframe width="350" height="200" src="https://www.youtube.com/embed/GMqnadlVxIo?start=373" allowfullscreen class="video-frame" title="Martin Himma x FC Flora x Optibet"></iframe>
+            <div class="video-thumbnail" data-iframe='<iframe width="350" height="200" src="https://www.youtube.com/embed/GMqnadlVxIo?start=373" allowfullscreen class="video-frame" title="Martin Himma x FC Flora x Optibet"></iframe>'>
+                <img src="himma-flora-thumb.jpg" alt="Martin Himma x FC Flora x Optibet thumbnail" />
+                <div class="play-button"></div>
+            </div>
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -89,14 +92,10 @@
             <!-- YouTube: Reydan Viidas - Videography Portfolio -->
             <div class="futuristic-card">
             <h2 class="neon-text">YouTube: Drivers Club</h2>
-            <iframe
-            width="350"
-            height="200"
-            src="https://www.youtube.com/embed/VuaBv8P1rOQ?start=6"
-            allowfullscreen
-            class="video-frame"
-            title="Reydan Viidas - Videography Portfolio"
-            ></iframe>
+            <div class="video-thumbnail" data-iframe='<iframe width="350" height="200" src="https://www.youtube.com/embed/VuaBv8P1rOQ?start=6" allowfullscreen class="video-frame" title="Reydan Viidas - Videography Portfolio"></iframe>'>
+                <img src="drivers-club-thumb.jpg" alt="Drivers Club thumbnail" />
+                <div class="play-button"></div>
+            </div>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -105,14 +104,10 @@
             <!-- YouTube: Riina Rannamägi -->
             <div class="futuristic-card">
             <h2 class="neon-text">Kinnisvara virtuaaltuur</h2>
-            <iframe
-            width="350"
-            height="200"
-            src="https://www.youtube.com/embed/_bK65VSwTdU"
-            allowfullscreen
-            class="video-frame"
-            title="Riina Rannamägi"
-            ></iframe>
+            <div class="video-thumbnail" data-iframe='<iframe width="350" height="200" src="https://www.youtube.com/embed/_bK65VSwTdU" allowfullscreen class="video-frame" title="Riina Rannamägi"></iframe>'>
+                <img src="riina-thumb.jpg" alt="Kinnisvara virtuaaltuur thumbnail" />
+                <div class="play-button"></div>
+            </div>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -121,14 +116,10 @@
             <!-- YouTube: Drivers Club -->
             <div class="futuristic-card">
             <h2 class="neon-text">Drivers Club Hooaja avamine</h2>
-            <iframe
-            width="350"
-            height="200"
-            src="https://www.youtube.com/embed/3LDADU0Xro0?start=2"
-            allowfullscreen
-            class="video-frame"
-            title="Drivers Club"
-            ></iframe>
+            <div class="video-thumbnail" data-iframe='<iframe width="350" height="200" src="https://www.youtube.com/embed/3LDADU0Xro0?start=2" allowfullscreen class="video-frame" title="Drivers Club"></iframe>'>
+                <img src="drivers-club2-thumb.jpg" alt="Drivers Club Hooaja avamine thumbnail" />
+                <div class="play-button"></div>
+            </div>
             <div class="video-tags">
             <span class="check filmed">&#10003; Filmitud</span>
             <span class="check edited">&#10003; Montaaž</span>
@@ -311,7 +302,7 @@
     });
 })();
 
-// Lazy-load Google Drive iframes on click
+// Lazy-load all video iframes on click
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.video-thumbnail').forEach(function(thumb) {
