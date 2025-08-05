@@ -112,7 +112,6 @@
             <!-- YouTube: Epic Racing Film -->
             <div class="futuristic-card">
             <h2 class="neon-text">Ferati</h2>
-            <!-- Removed Google Drive embed -->
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -120,7 +119,6 @@
             <!-- YouTube: New Racing Film -->
             <div class="futuristic-card">
             <h2 class="neon-text">Martin Himma x Optibet</h2>
-            <!-- Removed Google Drive embed -->
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -164,7 +162,102 @@
     });
 })();
 
-// (Restored overlay JS logic here...)
-</script>
+// Restored overlay JS logic
+
+// ---
+
+// Overlay logic for intro video and fade-in
+
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const introVideo = document.getElementById('intro-video');
+        const introOverlay = document.getElementById('intro-overlay');
+        const mainContent = document.getElementById('main-content');
+        const reydanText = document.getElementById('reydan-text');
+        const soundToggleButton = document.getElementById('sound-toggle');
+        const skipButton = document.getElementById('skip-intro');
+        let portfolioRevealed = false;
+        let revealTimeout;
+
+        // Sound toggle button always visible
+        if (soundToggleButton && introVideo) {
+            function updateSoundButton() {
+                if (introVideo.muted) {
+                    soundToggleButton.textContent = '🔊 Aktiveeri heli';
+                } else {
+                    soundToggleButton.textContent = '🔇 Keela heli';
+                }
+            }
+            introVideo.muted = true;
+            soundToggleButton.onclick = function() {
+                introVideo.muted = !introVideo.muted;
+                updateSoundButton();
+                introVideo.play();
+            };
+            updateSoundButton();
+        }
+
+        // Force video to play with sound
+        introVideo.play().catch(function(error) {
+            introVideo.muted = true;
+            introVideo.play();
+        });
+
+        function revealPortfolio() {
+            if (portfolioRevealed) return;
+            portfolioRevealed = true;
+            reydanText.style.opacity = '1';
+            reydanText.style.transform = 'translate(-50%, -50%) scale(1)';
+            setTimeout(() => {
+                introOverlay.style.opacity = '0';
+                introOverlay.style.transition = 'opacity 1.2s ease-in-out';
+                setTimeout(() => {
+                    introOverlay.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    mainContent.style.opacity = '0';
+                    mainContent.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        mainContent.style.opacity = '1';
+                        mainContent.style.transition = 'opacity 1.2s ease-in-out';
+                    });
+                }, 1200);
+            }, 500);
+        }
+
+        function revealReydanText() {
+            reydanText.classList.remove('hidden');
+            reydanText.classList.add('cinematic-reveal');
+            reydanText.style.opacity = '1';
+            reydanText.style.zIndex = '100000';
+        }
+
+        revealTimeout = setTimeout(revealPortfolio, 14500);
+        setTimeout(revealReydanText, 13000);
+        introVideo.addEventListener('ended', revealPortfolio);
+
+        if (skipButton) {
+            skipButton.addEventListener('click', function() {
+                var unmuteButton = document.querySelector('.unmute-button');
+                if (unmuteButton) {
+                    unmuteButton.remove();
+                }
+                revealPortfolio();
+                introVideo.pause();
+                introVideo.currentTime = 0;
+                introOverlay.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                mainContent.style.opacity = '0';
+                mainContent.style.display = 'block';
+                requestAnimationFrame(() => {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.transition = 'opacity 1.2s ease-in-out';
+                });
+            });
+        }
+    });
+})();
+// ---
+
+    </script>
 </body>
 </html>
