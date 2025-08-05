@@ -109,16 +109,32 @@
             <span class="check edited">&#10003; Montaaž</span>
             </div>
             </div>
-            <!-- YouTube: Epic Racing Film -->
+            <!-- Google Drive: Epic Racing Film -->
             <div class="futuristic-card">
             <h2 class="neon-text">Ferati</h2>
+            <iframe
+            width="350"
+            height="200"
+            src="https://drive.google.com/file/d/1qbSd3dgpzTJ_1SRkTOXMn_2zW3t7o5-X/preview"
+            allowfullscreen
+            class="video-frame"
+            title="Epic Racing Film"
+            ></iframe>
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
             </div>
-            <!-- YouTube: New Racing Film -->
+            <!-- Google Drive: New Racing Film -->
             <div class="futuristic-card">
             <h2 class="neon-text">Martin Himma x Optibet</h2>
+            <iframe
+            width="350"
+            height="200"
+            src="https://drive.google.com/file/d/1cAu7W8-6GyQdGOaoKxW_L95Yna6ybDNp/preview"
+            allowfullscreen
+            class="video-frame"
+            title="Racing Film 2"
+            ></iframe>
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -162,12 +178,7 @@
     });
 })();
 
-// Restored overlay JS logic
-
-// ---
-
-// Overlay logic for intro video and fade-in
-
+// Overlay JS logic
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
         const introVideo = document.getElementById('intro-video');
@@ -254,10 +265,16 @@
                 });
             });
         }
+
+        // Disable intro video after 30 seconds
+        setTimeout(function() {
+            if (introVideo) {
+                introVideo.pause();
+                introVideo.style.display = 'none';
+            }
+        }, 30000);
     });
 })();
-// ---
-
     </script>
 </body>
 </html>
