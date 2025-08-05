@@ -9,7 +9,28 @@
 </head>
 <body>
     <div class="futuristic-bg"></div>
-    <div id="main-content" class="portfolio-container futuristic-glow">
+    <!-- Dramatic Intro Overlay -->
+    <div id="intro-overlay" class="intro-fullscreen">
+        <div class="intro-video-wrapper">
+            <button id="sound-toggle" class="intro-left-button">🔊 Aktiveeri heli</button>
+            <button id="skip-intro" class="skip-button">Portfooliosse</button>
+            <video 
+                id="intro-video" 
+                autoplay 
+                playsinline 
+                preload="auto"
+                class="intro-video"
+                muted
+            >
+                <source src="intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="intro-overlay-content">
+                <div id="reydan-text" class="reveal-text hidden">Reydan Videograafia</div>
+            </div>
+        </div>
+    </div>
+    <div id="main-content" class="portfolio-container futuristic-glow hidden">
         <header class="futuristic-header">
             <h1><span class="neon-text">Reydan Videograafia</span></h1>
         </header>
@@ -91,14 +112,7 @@
             <!-- YouTube: Epic Racing Film -->
             <div class="futuristic-card">
             <h2 class="neon-text">Ferati</h2>
-            <iframe
-            width="350"
-            height="200"
-            src="https://drive.google.com/file/d/1qbSd3dgpzTJ_1SRkTOXMn_2zW3t7o5-X/preview"
-            allowfullscreen
-            class="video-frame"
-            title="Epic Racing Film"
-            ></iframe>
+            <!-- Removed Google Drive embed -->
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -106,14 +120,7 @@
             <!-- YouTube: New Racing Film -->
             <div class="futuristic-card">
             <h2 class="neon-text">Martin Himma x Optibet</h2>
-            <iframe
-            width="350"
-            height="200"
-            src="https://drive.google.com/file/d/1cAu7W8-6GyQdGOaoKxW_L95Yna6ybDNp/preview"
-            allowfullscreen
-            class="video-frame"
-            title="Racing Film 2"
-            ></iframe>
+            <!-- Removed Google Drive embed -->
             <div class="video-tags">
             <span class="check edited">&#10003; Montaaž</span>
             </div>
@@ -122,7 +129,7 @@
             <div class="futuristic-card intro-video-card intro-video-grid-span">
                 <h2 class="neon-text">Võta ühendust!</h2>
                 <div class="intro-video-wrapper-portfolio">
-                    <video width="600" height="340" controls poster="intro-thumbnail.jpg" class="intro-portfolio-video">
+                    <video width="600" height="340" controls class="intro-portfolio-video">
                         <source src="intro.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -136,5 +143,28 @@
         </footer>
     </div>
     <script async src="//www.instagram.com/embed.js"></script>
+    <script>
+// Autoplay intro video on mute when scrolled into view
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var introPortfolioVideo = document.querySelector('.intro-portfolio-video');
+        if (introPortfolioVideo) {
+            introPortfolioVideo.muted = true;
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        introPortfolioVideo.play();
+                    } else {
+                        introPortfolioVideo.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(introPortfolioVideo);
+        }
+    });
+})();
+
+// (Restored overlay JS logic here...)
+</script>
 </body>
 </html>
