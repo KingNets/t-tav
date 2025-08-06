@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a2980">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Videography Portfolio</title>
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
@@ -19,15 +22,183 @@
         font-size: 1.1rem;
         margin-bottom: 12px;
     }
+
+    body.intro-active {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    body {
+        overflow-y: auto;
+        min-height: 100vh;
+    }
+
+    .intro-video-wrapper {
+        position: relative;
+        width: 60%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .intro-video {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+        background: #000;
+        border-radius: 8px;
+        margin-top: 15px;
+    }
+
+    .intro-controls {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        z-index: 10000;
+    }
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 10000;
+    }
+
+    @media (max-width: 768px) {
+        .intro-controls {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            width: 100%;
+            max-width: 120px;
+            margin: 0 auto;
+        }
+
+        .intro-video-wrapper {
+            width: 95%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .intro-left-button,
+        .skip-button {
+            flex: none;
+            width: 100%;
+            min-width: unset;
+            margin: 0;
+            padding: 6px 8px;
+            font-size: 11px;
+            white-space: nowrap;
+            letter-spacing: 0;
+            border-width: 1px;
+            text-align: center;
+        }
+
+        .intro-video {
+            margin-top: 10px;
+        }
+    }
+
+    #intro-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+        overflow: hidden;
+    }
+
+    #intro-overlay::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%),
+            repeating-linear-gradient(0deg, transparent 0%, transparent 2px, rgba(0, 0, 0, 0.1) 3px, transparent 3px, transparent 6px),
+            repeating-linear-gradient(90deg, transparent 0%, transparent 2px, rgba(0, 0, 0, 0.1) 3px, transparent 3px, transparent 6px);
+        z-index: 1;
+    }
+
+    .intro-video-wrapper {
+        position: relative;
+        z-index: 2;
+    }
+
+    .intro-left-button,
+    .skip-button {
+        padding: 12px 24px;
+        font-size: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        min-width: 160px;
+        margin: 0 10px;
+        backdrop-filter: blur(5px);
+    }
+
+    .intro-left-button:hover,
+    .skip-button:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .video-category {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        z-index: 1;
+    }
+
+    .futuristic-card {
+        position: relative;
+        margin-top: 15px;
+    }
     </style>
 </head>
 <body>
     <div class="futuristic-bg"></div>
     <!-- Dramatic Intro Overlay -->
-    <div id="intro-overlay" class="intro-fullscreen">
+    <div id="intro-overlay">
         <div class="intro-video-wrapper">
-            <button id="sound-toggle" class="intro-left-button">🔊 Aktiveeri heli</button>
-            <button id="skip-intro" class="skip-button">Portfooliosse</button>
+            <div class="intro-controls">
+                <button id="sound-toggle" class="intro-left-button">🔊 Aktiveeri heli</button>
+                <button id="skip-intro" class="skip-button">Portfooliosse</button>
+            </div>
             <video 
                 id="intro-video" 
                 autoplay 
@@ -51,6 +222,7 @@
         <div class="card-grid">
             <!-- YouTube: Martin Himma x FC Flora x Optibet -->
             <div class="futuristic-card">
+            <div class="video-category">Sponsoreeritud</div>
             <h2 class="neon-text">YouTube: Martin Himma x FC Flora x Optibet</h2>
             <iframe width="350" height="200" src="https://www.youtube.com/embed/GMqnadlVxIo?start=373" 
                 title="Martin Himma x FC Flora x Optibet" 
@@ -65,6 +237,7 @@
             </div>
             <!-- YouTube: Reydan Viidas - Videography Portfolio -->
             <div class="futuristic-card">
+            <div class="video-category">Auto & Sport</div>
             <h2 class="neon-text">YouTube: Drivers Club</h2>
             <iframe width="350" height="200" src="https://www.youtube.com/embed/VuaBv8P1rOQ?start=6"
                 title="Drivers Club" 
@@ -80,6 +253,7 @@
             </div>
             <!-- YouTube: Riina Rannamägi -->
             <div class="futuristic-card">
+            <div class="video-category">Kinnisvara</div>
             <h2 class="neon-text">Kinnisvara virtuaaltuur</h2>
             <iframe width="350" height="200" src="https://www.youtube.com/embed/_bK65VSwTdU"
                 title="Kinnisvara virtuaaltuur" 
@@ -95,6 +269,7 @@
             </div>
             <!-- YouTube: Drivers Club -->
             <div class="futuristic-card">
+            <div class="video-category">Sündmus</div>
             <h2 class="neon-text">Drivers Club Hooaja avamine</h2>
             <iframe width="350" height="200" src="https://www.youtube.com/embed/3LDADU0Xro0?start=2"
                 title="Drivers Club Hooaja avamine" 
@@ -110,6 +285,7 @@
             </div>
             <!-- Instagram: Portfolio Reel 1 -->
             <div class="futuristic-card">
+            <div class="video-category">Kinnisvara</div>
             <h2 class="neon-text">Arco Vara kinnisvarabüroo x Landen kinnisvara</h2>
             <iframe width="350" height="200" src="https://www.instagram.com/p/DMKASBeNUfm/embed" 
                 title="Arco Vara kinnisvarabüroo x Landen kinnisvara" 
@@ -124,6 +300,7 @@
             </div>
             <!-- Instagram: Portfolio Reel 2 -->
             <div class="futuristic-card">
+            <div class="video-category">Kinnisvara</div>
             <h2 class="neon-text">Virtuaaltuur ft. Joshua James Viinalass</h2>
             <iframe width="350" height="200" src="https://www.instagram.com/p/DE-Wm-KuHaF/embed" 
                 title="Virtuaaltuur ft. Joshua James Viinalass" 
@@ -138,6 +315,7 @@
             </div>
             <!-- Google Drive: Epic Racing Film (removed) -->
             <div class="futuristic-card">
+            <div class="video-category">Auto & Sport</div>
             <h2 class="neon-text">Ferati</h2>
             <iframe src="https://drive.google.com/file/d/1qbSd3dgpzTJ_1SRkTOXMn_2zW3t7o5-X/preview" width="350" height="200" allow="autoplay" class="video-frame"></iframe>
             <div class="video-tags">
@@ -146,6 +324,7 @@
             </div>
             <!-- Google Drive: New Racing Film (removed) -->
             <div class="futuristic-card">
+            <div class="video-category">Sponsoreeritud</div>
             <h2 class="neon-text">Martin Himma x Optibet</h2>
             <iframe src="https://drive.google.com/file/d/1cAu7W8-6GyQdGOaoKxW_L95Yna6ybDNp/preview" width="350" height="200" allow="autoplay" class="video-frame"></iframe>
             <div class="video-tags">
@@ -181,6 +360,9 @@
         const skipButton = document.getElementById('skip-intro');
         let portfolioRevealed = false;
         let revealTimeout;
+        
+        // Add intro-active class to body
+        document.body.classList.add('intro-active');
 
         // Sound toggle button always visible
         if (soundToggleButton && introVideo) {
@@ -224,6 +406,8 @@
                     mainContent.style.opacity = '1';
                     mainContent.style.display = 'block';
                     mainContent.style.transition = 'opacity 0.8s ease-in-out';
+                    document.body.classList.remove('intro-active');
+                    document.body.style.overflow = 'auto'; // Ensure scrolling is enabled
                 }, 800);
             });
         }
@@ -262,6 +446,8 @@
                     mainContent.style.display = 'block';
                     mainContent.style.transform = 'translateZ(0)'; // Hardware acceleration
                     mainContent.style.opacity = '0';
+                    document.body.classList.remove('intro-active');
+                    document.body.style.overflow = 'auto'; // Ensure scrolling is enabled
                     
                     // Use requestAnimationFrame for smooth transition
                     requestAnimationFrame(() => {
