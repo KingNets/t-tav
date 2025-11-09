@@ -551,7 +551,7 @@ body {
     margin-bottom: 30px;
     line-height: 1.2;
     font-weight: 900;
-    letter-spacing: -2px;
+    letter-spacing: 0px;
 }
 
 .featured-description {
