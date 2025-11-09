@@ -549,7 +549,7 @@ body {
     font-size: 4rem;
     color: var(--red);
     margin-bottom: 30px;
-    line-height: 0.9;
+    line-height: 1.2;
     font-weight: 900;
     letter-spacing: -2px;
 }
