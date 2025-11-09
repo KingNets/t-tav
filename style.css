@@ -609,12 +609,17 @@ body {
 .service-icon {
     font-size: 4rem;
     margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-icon img {
     width: 80px;
     height: 80px;
     object-fit: contain;
+    display: block;
 }
 
 .service-item h3 {
