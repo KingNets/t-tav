@@ -612,9 +612,11 @@ body {
 }
 
 .service-item h3 {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Impact', 'Arial Black', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 15px;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
 .service-item p {
