@@ -611,6 +611,12 @@ body {
     margin-bottom: 20px;
 }
 
+.service-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
 .service-item h3 {
     font-family: 'Impact', 'Arial Black', sans-serif;
     font-size: 1.5rem;
