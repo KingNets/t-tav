@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reydan - Videograafia & Tootmine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&family=Caveat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="Twitter">X</a>
+        </div>
+        <div class="logo">
+            <h1>REYDAN</h1>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span>MENÜÜ</span>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </nav>
+
+    <!-- Full Screen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <button class="close-menu" id="closeMenu">✕</button>
+        <ul class="menu-items">
+            <li><a href="#home">AVALEHT</a></li>
+            <li><a href="#work">MEIE TÖÖ</a></li>
+            <li><a href="#about">MEIST</a></li>
+            <li><a href="#services">TEENUSED</a></li>
+            <li><a href="#contact">KONTAKT</a></li>
+        </ul>
+    </div>
+
+    <!-- Video Hero Section -->
+    <section class="video-hero" id="home">
+        <div class="video-container">
+            <div class="video-placeholder">
+                <video autoplay muted loop playsinline>
+                    <source src="intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-overlay"></div>
+            <div class="play-button">
+                <span class="play-text">PLAY</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productions Section -->
+    <section class="productions" id="work">
+        <div class="section-title">
+            <h2 class="handwritten-title">vaata julgelt</h2>
+            <h1 class="big-title">MEIE PRODUKTSIOON</h1>
+        </div>
+        
+        <div class="production-grid">
+            <div class="production-card" data-video="arvamismong.mp4">
+                <div class="production-image">
+                    <div class="placeholder-image">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h3 class="production-title">TIMBER</h3>
+                <p class="production-description">Suurendasime Timber.ee brändi nähtavust läbi nutikate lühivideote</p>
+            </div>
+            
+            <div class="production-card" data-video="R_Kurveim laul.mp4">
+                <div class="production-image">
+                    <div class="placeholder-image">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h3 class="production-title">OPTIBET</h3>
+                <p class="production-description">R_kurveim laul</p>
+            </div>
+            
+            <div class="production-card">
+                <div class="production-image">
+                    <div class="placeholder-image">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h3 class="production-title">ARCO VARA KINNISVARABÜROO</h3>
+                <p class="production-description">Tõelised lood, tõeline mõju</p>
+            </div>
+            
+            <div class="production-card">
+                <div class="production-image">
+                    <div class="placeholder-image">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h3 class="production-title">LÜHIFILMID</h3>
+                <p class="production-description">Kinemaatiline jutustamine</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section class="featured-work">
+        <div class="featured-container">
+            <div class="featured-image">
+                <div class="large-placeholder">
+                    <span class="play-icon-large">▶</span>
+                </div>
+            </div>
+            <div class="featured-text">
+                <h2 class="handwritten-feature">viimane projekt</h2>
+                <h1 class="featured-title">TIMBER AS<br>NÄHTAVUSE SUURENDAMINE</h1>
+                <p class="featured-description">
+                    Läbi lühivideote, suurendamise Timber.ee brändi nähtavust
+                </p>
+                <button class="cta-button" onclick="window.open('https://drive.google.com/file/d/1JRRT7mqB0nvPcPCWHBn0I44k3xPywz4Z/view?usp=sharing', '_blank')">VAATA LÄHEMALT</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="handwritten-title">mida me teeme</h2>
+        <h1 class="big-title">TEENUSED</h1>
+        
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-icon"><img src="erasebg-transformed (2).png" alt="Strateegia icon"></div>
+                <h3>STRATEEGIA</h3>
+                <p>Analüüsime Teie sihtgruppi ja konkurente<br>Koostame tõhusa videostrateegia</p>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon"><img src="camera-vector-sketch-illustration-outline-isolated-2BWTK2D-removebg-preview.png" alt="Produktsioon icon"></div>
+                <h3>PRODUKTSIOON</h3>
+                <p>Loome ideed, kirjutame stsenaariumi ning lavastame ja filmime võttepäeva selliselt, et ka teie kõige tõsisem kolleeg soovib peaosa saada</p>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon"><img src="erasebg-transformed.png" alt="Järeltöötlus icon"></div>
+                <h3>JÄRELTÖÖTLUS</h3>
+                <p>Paigaldame kellad ja viled, mis helisevad ja vilisevad üle mitme maa ja mere</p>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon"><img src="Adobe Express - file (6).png" alt="Loov juhtimine icon"></div>
+                <h3>LOOV JUHTIMINE</h3>
+                <p>Postitamiste optimeerimine, tulemuste jälgimine ja analüüs. Tüürime sotsmeedia laineharjal, et sinu bränd tabaks kõiki pilke.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="handwritten-title">räägime</h2>
+        <h1 class="big-title">ALUSTA OMA PROJEKTI</h1>
+        
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="NIMI" required>
+                <input type="email" placeholder="E-POST" required>
+                <input type="text" placeholder="PROJEKTI TÜÜP">
+                <textarea placeholder="RÄÄGI MEILE OMA PROJEKTIST" rows="5" required></textarea>
+                <button type="submit" class="submit-button">SAADA SÕNUM</button>
+            </form>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3>E-POST</h3>
+                    <p>tere@reydan.ee</p>
+                </div>
+                <div class="info-item">
+                    <h3>TELEFON</h3>
+                    <p>+372 5123 4567</p>
+                </div>
+                <div class="info-item">
+                    <h3>ASUKOHT</h3>
+                    <p>Tallinn, Eesti</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>REYDAN</h2>
+            </div>
+            <div class="footer-text">
+                <p class="handwritten-footer">elustame lugusid alates 2020</p>
+            </div>
+            <div class="footer-social">
+                <a href="#">in</a>
+                <a href="#">ig</a>
+                <a href="#">X</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 REYDAN. Kõik õigused kaitstud.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
