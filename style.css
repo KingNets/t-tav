@@ -634,6 +634,20 @@ body {
     text-align: center;
 }
 
+.ai-disclaimer {
+    font-size: 0.9rem;
+    color: var(--black);
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.ai-disclaimer:hover {
+    opacity: 1;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
