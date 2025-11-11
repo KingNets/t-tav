@@ -81,21 +81,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handler
+// Form submission handler with Formspree
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Get form values
         const formData = new FormData(contactForm);
         
-        // Here you would typically send the data to a server
-        // For now, we'll just show an alert
-        alert('Täname sõnumi eest! Võtame teiega peagi ühendust.');
-        
-        // Reset form
-        contactForm.reset();
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('Täname sõnumi eest! Võtame teiega peagi ühendust.');
+                contactForm.reset();
+            } else {
+                alert('Viga sõnumi saatmisel. Palun proovige uuesti.');
+            }
+        } catch (error) {
+            alert('Viga sõnumi saatmisel. Palun proovige uuesti.');
+        }
     });
 }
 

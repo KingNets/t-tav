@@ -169,11 +169,10 @@
         <h1 class="big-title">ALUSTA OMA PROJEKTI</h1>
         
         <div class="contact-container">
-            <form class="contact-form">
-                <input type="text" placeholder="NIMI" required>
-                <input type="email" placeholder="E-POST" required>
-                <input type="text" placeholder="PROJEKTI TÜÜP">
-                <textarea placeholder="RÄÄGI MEILE OMA PROJEKTIST" rows="5" required></textarea>
+            <form class="contact-form" action="https://formspree.io/f/steneerik.valliste@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="NIMI" required>
+                <input type="email" name="email" placeholder="E-POST" required>
+                <textarea name="message" placeholder="RÄÄGI MEILE OMA PROJEKTIST" rows="5" required></textarea>
                 <button type="submit" class="submit-button">SAADA SÕNUM</button>
             </form>
             
