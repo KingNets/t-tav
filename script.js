@@ -225,12 +225,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Video placeholder click handler
-document.querySelectorAll('.play-icon, .play-icon-large').forEach(icon => {
-    icon.addEventListener('click', function() {
-        alert('Videopleier avaneks siin. Ühenda oma tegelik video sisu!');
-    });
-});
+// Video placeholder click handler removed - using direct onclick handlers now
 
 // Production card video player
 document.querySelectorAll('.production-card[data-video]').forEach(card => {
