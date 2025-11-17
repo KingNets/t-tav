@@ -5,18 +5,26 @@ const fullscreenMenu = document.getElementById('fullscreenMenu');
 const menuItems = document.querySelectorAll('.menu-items a');
 
 // Video Hero Play Button
-const playButton = document.querySelector('.play-button');
-if (playButton) {
-    playButton.addEventListener('click', function() {
-        const video = document.querySelector('.video-placeholder video');
-        if (video) {
-            if (video.paused) {
-                video.play();
-                video.muted = false; // Unmute when user clicks
-            } else {
-                video.pause();
-            }
+const heroVideo = document.getElementById('heroVideo');
+const heroPlayButton = document.getElementById('heroPlayButton');
+const playText = document.querySelector('.play-text');
+
+if (heroPlayButton && heroVideo) {
+    heroPlayButton.addEventListener('click', function() {
+        if (heroVideo.paused) {
+            heroVideo.play();
+            playText.textContent = 'PAUSE';
+            // Keep video muted as requested
+            heroVideo.muted = true;
+        } else {
+            heroVideo.pause();
+            playText.textContent = 'PLAY';
         }
+    });
+    
+    // Reset button text when video ends
+    heroVideo.addEventListener('ended', function() {
+        playText.textContent = 'PLAY';
     });
 }
 
